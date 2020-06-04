@@ -30,7 +30,7 @@ def print_attribute(attribute,line,outstream):
 	outstream.write("</th>"+"\n")
 
 
-	attribute_value = line.replace(attribute,"").replace("*","").replace(" ","")
+	attribute_value = line.replace(attribute,"").replace("*","")
 
 	outstream.write("<th>"+"\n")
 	outstream.write(attribute_value)
@@ -64,9 +64,6 @@ for sourcefile in glob.glob("*.java"):
 				if(tag in line):
 					print_attribute(tag,line,output)
 
-
-
-		print(line);
 
 close_file(output)
 
