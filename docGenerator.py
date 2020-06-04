@@ -55,7 +55,7 @@ for sourcefile in glob.glob("*.java"):
 			output.write("<table>"+"\n")
 
 		if("*/" in line):
-			output.write("</table>"+"\n")
+			output.write("</table><br>"+"\n")
 
 		#parsing out all code line
 		if("*" in line):
