@@ -16,6 +16,18 @@ def close_file(file):
 	file.write("\n"+"</body>")
 	file.write("\n"+"</html>")
 	file.close()
+	
+def label(lab):
+    switcher={
+        "title":'Titolo',
+        "description":'Descrizione',
+        "expectedResults":'Risultati attesi',
+        "actualResult":'Risultati ottenuti',
+        "dependencies":'Dipendenze',
+        "preConditions":'Pre condizioni',
+        "postConditions":'Post condizioni'
+    }
+    return switcher.get(lab,"error")
 
 #attribute parameter is the attribute to print, second parameter is the line to parse, third parameter is the output stream
 def print_attribute(attribute,line,outstream):
@@ -25,14 +37,14 @@ def print_attribute(attribute,line,outstream):
 
 	outstream.write("<tr>"+"\n")
 
-	outstream.write("<th>"+"\n")
-	outstream.write(attribute_name+"\n")
+	outstream.write("<th style=\"width:15%; text-align:right; padding-right: 1em; background-color:#DDDDDD;\">"+"\n")
+	outstream.write(label(attribute_name)+"\n")
 	outstream.write("</th>"+"\n")
 
 
 	attribute_value = line.replace(attribute,"").replace("*","")
 
-	outstream.write("<th>"+"\n")
+	outstream.write("<th style=\"width:75%; text-align:left; padding-left: 2em;\">"+"\n")
 	outstream.write(attribute_value)
 	outstream.write("</th>"+"\n")
 
@@ -45,14 +57,17 @@ output = open_file()
 
 #finding all *.java files in the current directory
 for sourcefile in glob.glob("*.java"):
-	output.write("<b>"+sourcefile+"</b>"+"\n")
-
+	output.write(sourcefile+"\n")
+	imported = "<style>@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');</style>"
+	output.write(imported);
+	style = "<style> th {font-weight: normal} table {border-collapse: collapse; width:100%;} table, th, td {border: 1px solid black;}</style>"
+	output.write(style);
 	#scanning the sourcefile
 	file = open(sourcefile,"r");
 	for line in file:
 
 		if("/**" in line):
-			output.write("<table>"+"\n")
+			output.write("<table style=\"font-family: 'Roboto', sans-serif;\">"+"\n")
 
 		if("*/" in line):
 			output.write("</table><br>"+"\n")
@@ -65,5 +80,5 @@ for sourcefile in glob.glob("*.java"):
 					print_attribute(tag,line,output)
 
 
-close_file(output)
 
+close_file(output)
