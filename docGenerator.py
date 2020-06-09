@@ -19,13 +19,13 @@ def close_file(file):
 	
 def label(lab):
     switcher={
-        "title":'Titolo',
-        "description":'Descrizione',
-        "expectedResults":'Risultati attesi',
-        "actualResult":'Risultati ottenuti',
-        "dependencies":'Dipendenze',
-        "preConditions":'Pre condizioni',
-        "postConditions":'Post condizioni'
+        "title":'Title',
+        "description":'Description',
+        "expectedResults":'Expected results',
+        "actualResult":'Actual result',
+        "dependencies":'Dependencies',
+        "preConditions":'Pre Conditions',
+        "postConditions":'Post Conditions'
     }
     return switcher.get(lab,"error")
 
