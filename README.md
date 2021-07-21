@@ -1,4 +1,4 @@
-# docGenerator
+# DocGen
 
 A script to generate documentation of a test class that uses this comment pattern:
 
