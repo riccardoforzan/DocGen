@@ -4,7 +4,6 @@ A script to generate documentation of a test class that uses this comment patter
 
 /** to start a comment 
 
-
 * @title
 * @description 
 * @expectedResults 
@@ -13,8 +12,4 @@ A script to generate documentation of a test class that uses this comment patter
 * @preConditions 
 * @postConditions
 
-
 */ to close a comment
-
-# prettify
-Using bs4 in python makes pretty the code
